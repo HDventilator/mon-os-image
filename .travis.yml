@@ -7,7 +7,7 @@ deploy:
   bucket: hdvent-monitoring
   skip_cleanup: true
   acl: public-read
-  local-dir: ./pi-gen/deploy/
+  local-dir: ./deploy/
   on:
     all_branches: true
   secret_access_key:
