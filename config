@@ -2,5 +2,4 @@ IMG_NAME='HDVentian'
 RELEASE='buster'
 
 # build up to a simple desktop system
-# FIXME: Add custom stage here
 STAGE_LIST='stage0 stage1 stage2 stage3 stage_hdvent'
