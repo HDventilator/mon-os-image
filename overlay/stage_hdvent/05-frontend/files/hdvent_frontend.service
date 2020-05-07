@@ -1,0 +1,17 @@
+[Unit]
+Description=HDVent frontend
+After=influxdb.service
+
+[Service]
+ExecStart=gunicorn -b 0.0.0.0:8050 'monfrontend:get_server()'
+Environment=INFLUXDB_HOST=localhost
+Environment=INFLUXDB_PORT=8086
+Environment=INFLUXDB_DATABASE=hdvent
+Environment=GRAPH_UPDATE_INTERVAL_SECONDS=1.0
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
