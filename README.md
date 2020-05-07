@@ -28,3 +28,9 @@ The build will do the following:
   * This allows overriding arbitrary files or adding additional build stages
 * Run pi-gen with our local config
 
+# TODOs
+
+* Remove unneeded software packages
+* Disable wifi/bluetooth/network services
+* Better lock-down in kiosk mode
+* ...
