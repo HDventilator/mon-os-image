@@ -1,0 +1,14 @@
+[Unit]
+Description=HDVent preparation
+After=influxdb.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/create_influx_db.sh
+RemainAfterExit=true
+StandardOutput=inherit
+StandardError=inherit
+User=pi
+
+[Install]
+WantedBy=multi-user.target
