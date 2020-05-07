@@ -1,0 +1,13 @@
+[Unit]
+Description=HDVent receiver
+After=influxdb.service
+
+[Service]
+ExecStart=/usr/bin/python3 -m receiver
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
