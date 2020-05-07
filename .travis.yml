@@ -4,10 +4,14 @@ script:
 - bash create_images.sh
 deploy:
   provider: gcs
+  edge: true
   bucket: hdvent-monitoring
-  skip_cleanup: true
+  cleanup: false
   acl: public-read
-  local-dir: deploy
+  local_dir: ./deploy/
+  upload_dir: $TRAVIS_BRANCH
+  on:
+    all_branches: true
   secret_access_key:
     secure: fmvBRH7gnI9cmAidxEo3CT4S5e73+zzOn//7t/5+KZoBxQrCpGkmr+hpPjrgJ4zUZqhKRVcpNziLwviiPYThaM8B+1VO+H9s3SmaVn4538VWyTFFTBdV7/6has6d7akkwCpaqMJ1RzNmPGb8sBCGM5QON1EUrbfXmsJQbEMYIVWC+Q8tzjT13UdkdNJY/8sQYEWsnPiRxmO0ps4cPBQXeBTccjPzyMw4eneQNfLDSJ+8HntiVV0UWdd61ec3HBHVCH2gCcpA75g2fsXnUrQnufNqPMd2n9lVQwu6IkG5GZHyRRYSyVJB94Ou+My6FrHLjBGydatBWAqO37jB9cjKKvZzOELvWPXNjrZfR1hJm0XcSohZMXhoyXh9WspTY19z89cvZLPh4ySvcr3ScKQwUuXc90N1st4q2BXhLHCebW2jYp9nGd0jPqL+HJrkpujEdZzcyjoj4WQL5eC7xp2/SbPiuZBPo3Sm5XBrDwjUu2WMUVoq5HisTdU98hSJpaYw7F3pd5UMy6r8p+FCNo61HuVNpBshH51hpiXcRILtz1lhnTRitlIkBhxWB4jFnLSvcnPtg244ZrSTbevMpEhQSFbSi47gESzTy8cJrZ/lpFNQAgLmr8QJcdbwfzOfWmAnXximc8URDpYuE7o2pAwshwW/ItJ5fwXSNz3rH1ZRTmU=
   access_key_id:
