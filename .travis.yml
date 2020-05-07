@@ -7,7 +7,6 @@ deploy:
   edge: true
   bucket: hdvent-monitoring
   cleanup: false
-  run: ls ./deploy/
   acl: public-read
   local_dir: ./deploy/
   upload_dir: $TRAVIS_BRANCH
