@@ -4,8 +4,10 @@ script:
 - bash create_images.sh
 deploy:
   provider: gcs
+  edge: true
   bucket: hdvent-monitoring
-  skip_cleanup: true
+  cleanup: false
+  run: ls ./deploy/
   acl: public-read
   local-dir: ./deploy/
   on:
