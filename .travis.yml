@@ -9,7 +9,8 @@ deploy:
   cleanup: false
   run: ls ./deploy/
   acl: public-read
-  local-dir: ./deploy/
+  local_dir: ./deploy/
+  upload_dir: $TRAVIS_BRANCH
   on:
     all_branches: true
   secret_access_key:
