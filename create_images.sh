@@ -8,4 +8,5 @@ cp -r overlay/* pi-gen
 # let's go
 #pi-gen/build-docker.sh -c config
 mkdir -p ./deploy/
-echo "FOO" > FOO
+echo "FOO" > ./deploy/FOO
+ls -l ./deploy/
