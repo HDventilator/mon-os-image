@@ -4,6 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 BUILD_OPTS="$*"
 
 DOCKER="docker"
+CACHE_DIR="${DIR}/../work_cache/"
+mkdir -p "${CACHE_DIR}"
 
 if ! ${DOCKER} ps >/dev/null 2>&1; then
 	DOCKER="sudo docker"
@@ -89,6 +91,7 @@ else
 	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}' SIGINT SIGTERM
 	time ${DOCKER} run --name "${CONTAINER_NAME}" --privileged \
 		--volume "${CONFIG_FILE}":/config:ro \
+		--volume "${CACHE_DIR}":/pi-gen/work/:rw \
 		-e "GIT_HASH=${GIT_HASH}" \
 		pi-gen \
 		bash -e -o pipefail -c "dpkg-reconfigure qemu-user-static &&

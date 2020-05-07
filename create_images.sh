@@ -1,3 +1,5 @@
+#!/bin/bash
+set -e
 
 # get pi-gen if not here yet
 [ ! -d pi-gen ] && git clone https://github.com/RPi-Distro/pi-gen.git
