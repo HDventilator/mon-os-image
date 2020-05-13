@@ -3,14 +3,7 @@ arch:
 services:
 - docker
 script:
-- bash ci_cache_import.sh
-- bash create_images.sh
-cache:
-  directories:
-    - work_cache/export/
-  timeout: 1200
-before_cache:
-  - ./ci_cache_export.sh
+- docker run hello-world
 deploy:
   provider: gcs
   edge: true
