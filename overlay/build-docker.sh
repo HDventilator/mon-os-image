@@ -58,24 +58,24 @@ fi
 
 # Ensure the Git Hash is recorded before entering the docker container
 GIT_HASH=${GIT_HASH:-"$(git rev-parse HEAD)"}
-#
-#CONTAINER_EXISTS=$(${DOCKER} ps -a --filter name="${CONTAINER_NAME}" -q)
-#CONTAINER_RUNNING=$(${DOCKER} ps --filter name="${CONTAINER_NAME}" -q)
-#if [ "${CONTAINER_RUNNING}" != "" ]; then
-#	echo "The build is already running in container ${CONTAINER_NAME}. Aborting."
-#	exit 1
-#fi
-#if [ "${CONTAINER_EXISTS}" != "" ] && [ "${CONTINUE}" != "1" ]; then
-#	echo "Container ${CONTAINER_NAME} already exists and you did not specify CONTINUE=1. Aborting."
-#	echo "You can delete the existing container like this:"
-#	echo "  ${DOCKER} rm -v ${CONTAINER_NAME}"
-#	exit 1
-#fi
-#
-## Modify original build-options to allow config file to be mounted in the docker container
-#BUILD_OPTS="$(echo "${BUILD_OPTS:-}" | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
-#
-#${DOCKER} build -t pi-gen "${DIR}"
+
+CONTAINER_EXISTS=$(${DOCKER} ps -a --filter name="${CONTAINER_NAME}" -q)
+CONTAINER_RUNNING=$(${DOCKER} ps --filter name="${CONTAINER_NAME}" -q)
+if [ "${CONTAINER_RUNNING}" != "" ]; then
+	echo "The build is already running in container ${CONTAINER_NAME}. Aborting."
+	exit 1
+fi
+if [ "${CONTAINER_EXISTS}" != "" ] && [ "${CONTINUE}" != "1" ]; then
+	echo "Container ${CONTAINER_NAME} already exists and you did not specify CONTINUE=1. Aborting."
+	echo "You can delete the existing container like this:"
+	echo "  ${DOCKER} rm -v ${CONTAINER_NAME}"
+	exit 1
+fi
+
+# Modify original build-options to allow config file to be mounted in the docker container
+BUILD_OPTS="$(echo "${BUILD_OPTS:-}" | sed -E 's@\-c\s?([^ ]+)@-c /config@')"
+
+${DOCKER} build -t pi-gen "${DIR}"
 #if [ "${CONTAINER_EXISTS}" != "" ]; then
 #	trap 'echo "got CTRL+C... please wait 5s" && ${DOCKER} stop -t 5 ${CONTAINER_NAME}_cont' SIGINT SIGTERM
 #	time ${DOCKER} run --rm --privileged \
