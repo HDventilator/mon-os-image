@@ -3,7 +3,7 @@ arch:
 services:
 - docker
 script:
-- docker run hello-world
+- bash create_image.sh
 deploy:
   provider: gcs
   edge: true
