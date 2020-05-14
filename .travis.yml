@@ -3,7 +3,7 @@ arch:
 services:
 - docker
 script:
-- bash create_image.sh
+- bash create_images.sh
 deploy:
   provider: gcs
   edge: true
