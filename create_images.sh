@@ -8,4 +8,5 @@ set -e
 cp -r overlay/* pi-gen
 
 # let's go
-pi-gen/build-docker.sh -c config
+#pi-gen/build-docker.sh -c config
+pi-gen/build.sh -c config
