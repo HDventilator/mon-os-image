@@ -3,7 +3,7 @@ Description=HDVent frontend
 After=influxdb.service
 
 [Service]
-ExecStart=gunicorn -b 0.0.0.0:8050 'monfrontend:get_server()'
+ExecStart=gunicorn -b 0.0.0.0:80 'monfrontend:get_server()'
 Environment=INFLUXDB_HOST=localhost
 Environment=INFLUXDB_PORT=8086
 Environment=INFLUXDB_DATABASE=hdvent
