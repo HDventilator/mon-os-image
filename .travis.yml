@@ -1,5 +1,9 @@
 arch:
   - arm64
+os:
+  -linux
+dist:
+  - bionic
 services:
 - docker
 script:
