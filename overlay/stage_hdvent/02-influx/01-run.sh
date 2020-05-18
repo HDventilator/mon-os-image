@@ -1,5 +1,6 @@
 #!/bin/bash -e
 
+install -v -m 644 files/97-influx.conf "${ROOTFS_DIR}/etc/sysctl.d/"
 install -v -m 644 files/hdvent.service "${ROOTFS_DIR}/etc/systemd/system/"
 install -v -m 777 files/create_influx_db.sh "${ROOTFS_DIR}/usr/bin/"
 
