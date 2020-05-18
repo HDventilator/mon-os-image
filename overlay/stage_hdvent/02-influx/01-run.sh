@@ -14,3 +14,5 @@ systemctl enable influxdb
 systemctl enable hdvent
 EOF
 
+install -v -m 644 files/influxdb.conf "${ROOTFS_DIR}/etc/influxdb/"
+
