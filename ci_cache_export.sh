@@ -14,6 +14,6 @@ fi
 if [ -d "$CACHE_DIR/stage2"  ]; then
     sudo tar -cf work_cache/export/stage2.tar -C $CACHE_DIR stage2/
 fi
-if [ -d "$CACHE_DIR/stage3"  ]; then
-    sudo tar -cf work_cache/export/stage3.tar -C $CACHE_DIR stage3/
+if [ -d "$CACHE_DIR/stage3_slim"  ]; then
+    sudo tar -cf work_cache/export/stage3_slim.tar -C $CACHE_DIR stage3_slim/
 fi
