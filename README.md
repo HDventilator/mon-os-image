@@ -4,7 +4,21 @@
 This repo contains all relevant configuration files and scripts to build the HDVent monitoring device software
 as raspberry PI image ready for installation.
 
+**This is a protopye. It is not fit for medical use.**
+
 # How to use it
+
+## Installation
+
+* Download latest HDventian image from https://storage.googleapis.com/hdvent-monitoring/index.html?prefix=master/
+* Flash to SD-Card (see https://www.raspberrypi.org/documentation/installation/installing-images/README.md )
+* Boot Raspberry Pi
+
+## Supported Platform
+
+This image is optimized for Raspberry Pi 3. It should boot on all Raspberries, but older models will not have enough CPU power to correctly display monitoring data.
+
+# Local builds
 
 Building the HDVentian image:
 ```
