@@ -42,9 +42,25 @@ The build will do the following:
   * This allows overriding arbitrary files or adding additional build stages
 * Run pi-gen with our local config
 
+## Adding additional raspian software packages to the image
+
+This can easily be done by adding a needed package to overlay/stage_hdvent/00-install-packages/00-packages,
+if additional configuration is needed or additional files those can be added in stage_hdvent as well.
+Consult the pi-gen docs for more information.
+
+## HDVent frontend/backend
+
+HDVent frontend and backend is directly installed from their respective github repositories (master branch).
+This image contains systemd service files to automatically start them up on boot.
+
+## Kiosk mode
+
+On LXDE startup chromium will be autostarted in kiosk mode and load the frontend from localhost:80.
+
 # TODOs
 
-* Remove unneeded software packages
-* Disable wifi/bluetooth/network services
-* Better lock-down in kiosk mode
+* Fork from pi-gen instead of using overlay approach?
+* Remove unneeded software packages?
+* Disable wifi/bluetooth/network services?
+* Better lock-down in kiosk mode?
 * ...
